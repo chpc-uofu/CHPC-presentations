@@ -50,4 +50,11 @@ $ git commit -am 'added my-new-presentation'
 $ git push origin master
 ```
 
+### Shortening URLs
 
+The URLs of the individual presentations may end up being fairly long, which will make it difficult to include into the Powerpoint slide. We can use URL shortener git.io to make those URL shorters. Custom short page name has to be done through the curl command, e.g.:
+```
+curl -i https://git.io -F "url=https://github.com/CHPC-UofU/CHPC-presentations/tree/master/Intro-to-Parallel-Computing/R-examples" -F "code=CHPC-Intro-to-Parallel-Computing-R"
+```
+
+will shorten the ```https://github.com/CHPC-UofU/CHPC-presentations/tree/master/Intro-to-Parallel-Computing/R-examples``` to ```https://git.io/CHPC-Intro-to-Parallel-Computing-R```
