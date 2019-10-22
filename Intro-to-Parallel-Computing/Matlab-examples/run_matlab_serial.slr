@@ -1,0 +1,16 @@
+#!/bin/tcsh
+#SBATCH --time=1:00:00 # walltime, abbreviated by -t
+#SBATCH --nodes=1      # number of cluster nodes, abbreviated by -N
+#SBATCH -o slurm-%j.out-%N # name of the stdout, using the job number (%j) and the first node (%N)
+#SBATCH --ntasks=1    # number of MPI tasks, abbreviated by -n
+# additional information for allocated clusters
+#SBATCH --account=notchpeak-shared-short     # account - abbreviated by -A
+#SBATCH --partition=notchpeak-shared-short  # partition, abbreviated by -p
+
+# just in case purge the old modules and load Matlab module
+module purge
+module load matlab
+
+# run matlab program via the run_matlab script
+matlab -nodisplay -r run_matlab_serial -logfile matlab_serial.log
+

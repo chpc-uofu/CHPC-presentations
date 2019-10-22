@@ -1,0 +1,13 @@
+#!/bin/bash 
+#SBATCH -N 1 
+#SBATCH -n 1
+#SBATCH -o Rserial.o%j 
+#SBATCH -t 00:05:00 
+#SBATCH --account=notchpeak-shared-short
+#SBATCH --partition=notchpeak-shared-short
+
+srun -n $SLURM_NTASKS hostname > hostlist.txt
+
+module load R/3.5.2
+
+Rscript serial-iris.R
