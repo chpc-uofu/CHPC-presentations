@@ -1,10 +1,10 @@
+c = parcluster;
 
 c.AdditionalProperties.QueueName = 'notchpeak-shared-short';
 c.AdditionalProperties.Account = 'notchpeak-shared-short';
 c.AdditionalProperties.WallTime = '1:00:00';
 c.AdditionalProperties.ClusterName = 'notchpeak';
 
-c = parcluster;
 n = 400;
 A = 1000;
 a = zeros(1,n);
