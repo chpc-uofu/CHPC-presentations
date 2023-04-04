@@ -2,12 +2,13 @@
 #SBATCH -N 2 
 #SBATCH -n 8
 #SBATCH -o Rparallel-multinode.o%j 
+#SBATCH -e Rparallel-multinode.e%j 
 #SBATCH -t 00:05:00 
 #SBATCH --account=notchpeak-shared-short
 #SBATCH --partition=notchpeak-shared-short
 
 srun -n $SLURM_NTASKS hostname > hostlist.txt
 
-module load R/3.5.2
+module load R
 
 Rscript parallel-multinode-iris.R

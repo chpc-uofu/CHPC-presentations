@@ -4,7 +4,8 @@ library(doParallel)
 hostlist <- paste(unlist(read.delim(file="hostlist.txt", header=F, sep =" ")))
 cl <- makeCluster(hostlist)
 registerDoParallel(cl)
-clusterEvalQ(cl,.libPaths("/uufs/chpc.utah.edu/sys/installdir/RLibs/3.5.2i"))
+# this does not seem to be needed in R >= 4.0
+#clusterEvalQ(cl,.libPaths("/uufs/chpc.utah.edu/sys/installdir/RLibs/3.5.2i"))
 x <- iris[which(iris[,5] != "setosa"), c(1,5)]
 trials <- 10000
 system.time({
